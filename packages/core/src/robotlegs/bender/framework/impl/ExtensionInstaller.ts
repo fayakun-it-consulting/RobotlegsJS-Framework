@@ -63,6 +63,17 @@ export class ExtensionInstaller {
         }
     }
 
+    public uninstall(extension: any): void{
+        if (!extension){
+            throw new Error("Invalid extension parameter.");
+        }
+        let existingExtension: ExtensionInstance = this._classes.get(extension);
+        if (!existingExtension){
+            throw new Error("This extension is non-existent.");
+        }
+        existingExtension.instance.unextend(this._context);
+        this._classes.delete(extension);
+    }
     /**
      * Destroy
      */

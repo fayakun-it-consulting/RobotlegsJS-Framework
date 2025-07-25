@@ -12,7 +12,7 @@
  */
 export class ExtensionInstance{
 
-    private _instance: Object;
+    private _instance: any;
     private _instanciated: boolean;
 
     /**
@@ -21,5 +21,9 @@ export class ExtensionInstance{
     public constructor(instance: Object, instanciated: boolean) {
         this._instance = instance;
         this._instanciated = instanciated;
+    }
+
+    public get instance(): any{
+        return this._instance;
     }
 }

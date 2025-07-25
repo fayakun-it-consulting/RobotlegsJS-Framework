@@ -65,7 +65,7 @@ export class UIManagerBundle implements IBundle {
 
     private whenInitializing(): void {
         if (!this._context.injector.isBound(IContextView)) {
-            this._logger.error("OpenFLBundle requires IContextView.");
+            this._logger.error("UIManagerBundle requires IContextView.");
         }
     }
 

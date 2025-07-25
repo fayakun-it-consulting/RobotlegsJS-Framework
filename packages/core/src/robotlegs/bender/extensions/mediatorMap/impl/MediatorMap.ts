@@ -5,7 +5,7 @@
 //  in accordance with the terms of the license agreement accompanying it.
 // ------------------------------------------------------------------------------
 
-import { injectable, inject, IClass, IContext, ILogger, ITypeMatcher, TypeMatcher } from "@robotlegsjs/core";
+import { IClass, IContext, ILogger, inject, injectable, ITypeMatcher, TypeMatcher } from "@robotlegsjs/core";
 
 import { IMediatorMap } from "../api/IMediatorMap";
 import { IMediatorMapper } from "../dsl/IMediatorMapper";
@@ -14,11 +14,9 @@ import { IMediatorUnmapper } from "../dsl/IMediatorUnmapper";
 import { IViewHandler } from "../../viewManager/api/IViewHandler";
 
 import { MediatorFactory } from "./MediatorFactory";
+import { MediatorMapper } from "./MediatorMapper";
 import { MediatorViewHandler } from "./MediatorViewHandler";
 import { NullMediatorUnmapper } from "./NullMediatorUnmapper";
-import { MediatorMapper } from "./MediatorMapper";
-
-import DisplayObject from "openfl/display/DisplayObject";
 
 /**
  * @private
@@ -96,7 +94,7 @@ export class MediatorMap implements IMediatorMap, IViewHandler {
     /**
      * @inheritDoc
      */
-    public handleView(view: DisplayObject, type: IClass<any>): void {
+    public handleView(view: Element, type: IClass<any>): void {
         this._viewHandler.handleView(view, type);
     }
 

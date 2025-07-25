@@ -7,12 +7,10 @@
 
 import { IClass } from "@robotlegsjs/core";
 
-import { IMediatorMapping } from "../api/IMediatorMapping";
 import { IViewHandler } from "../../viewManager/api/IViewHandler";
+import { IMediatorMapping } from "../api/IMediatorMapping";
 
 import { MediatorFactory } from "./MediatorFactory";
-
-import DisplayObject from "openfl/display/DisplayObject";
 
 /**
  * @private
@@ -70,7 +68,7 @@ export class MediatorViewHandler implements IViewHandler {
     /**
      * @private
      */
-    public handleView(view: DisplayObject, type: IClass<any>): void {
+    public handleView(view: Element, type: IClass<any>): void {
         let interestedMappings = this.getInterestedMappingsFor(view, type);
         if (interestedMappings) {
             this._factory.createMediators(view, type, interestedMappings);

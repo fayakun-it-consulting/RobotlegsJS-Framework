@@ -8,7 +8,6 @@
 import { IMediatorMapping } from "../api/IMediatorMapping";
 import { MediatorFactory } from "./MediatorFactory";
 
-import DisplayObject from "openfl/display/DisplayObject";
 import Event from "openfl/events/Event";
 
 /**
@@ -41,7 +40,7 @@ export class MediatorManager {
      */
     public addMediator(mediator: any, item: any, mapping: IMediatorMapping): void {
         // Watch Display Object for removal
-        if (item instanceof DisplayObject && mapping.autoRemoveEnabled) {
+        if (item instanceof Element && mapping.autoRemoveEnabled) {
             item.addEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
         }
 
@@ -53,7 +52,7 @@ export class MediatorManager {
      * @private
      */
     public removeMediator(mediator: any, item: any, mapping: IMediatorMapping): void {
-        if (item instanceof DisplayObject) {
+        if (item instanceof Element) {
             item.removeEventListener(Event.REMOVED_FROM_STAGE, this.onRemovedFromStage);
         }
 

@@ -146,7 +146,7 @@ export class Context extends EventDispatcher implements IContext {
         super();
         this._setup();
     }
-
+  
     /*============================================================================*/
     /* Public Functions                                                           */
     /*============================================================================*/
@@ -292,6 +292,20 @@ export class Context extends EventDispatcher implements IContext {
     /**
      * @inheritDoc
      */
+    public uninstall(...extensions: IBundle[] | IClass<IBundle>[] | IExtension[] | IClass<IExtension>[]
+    ): IContext {
+         extensions.forEach(
+            (extension: IBundle | IClass<IBundle> | IExtension | IClass<IExtension>) => {
+                this._extensionInstaller.uninstall(extension);
+            }
+        );
+        return this;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
     public configure(...configs: IConfig[] | IClass<IConfig>[]): IContext {
         configs.forEach((config: IConfig | IClass<IConfig>) => {
             this._configManager.addConfig(config);
@@ -339,6 +353,14 @@ export class Context extends EventDispatcher implements IContext {
      */
     public addConfigHandler(matcher: IMatcher, handler: Function): IContext {
         this._configManager.addConfigHandler(matcher, handler);
+        return this;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public removeConfigHandler(matcher: IMatcher): IContext {
+        this._configManager.remomveConfigHandler(matcher);
         return this;
     }
 

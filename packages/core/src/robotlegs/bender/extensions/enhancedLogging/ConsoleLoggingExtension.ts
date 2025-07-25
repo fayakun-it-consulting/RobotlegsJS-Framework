@@ -13,6 +13,7 @@ import { ConsoleLogTarget } from "./impl/ConsoleLogTarget";
  * Adds a TraceLogTarget to the context
  */
 export class ConsoleLoggingExtension implements IExtension {
+    
     /*============================================================================*/
     /* Public Functions                                                           */
     /*============================================================================*/
@@ -23,4 +24,9 @@ export class ConsoleLoggingExtension implements IExtension {
     public extend(context: IContext): void {
         context.addLogTarget(new ConsoleLogTarget(context));
     }
+
+    public unextend(context: IContext): void {
+        throw new Error("Method not implemented.");
+    }
+    
 }

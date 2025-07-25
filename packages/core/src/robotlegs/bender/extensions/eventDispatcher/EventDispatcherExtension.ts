@@ -52,6 +52,9 @@ export class EventDispatcherExtension implements IExtension {
         this._context.afterDestroying(this._destroyLifecycleEventRelay.bind(this));
     }
 
+    public unextend(context: IContext): void {
+        throw new Error("Method not implemented.");
+    }
     /*============================================================================*/
     /* Private Functions                                                          */
     /*============================================================================*/

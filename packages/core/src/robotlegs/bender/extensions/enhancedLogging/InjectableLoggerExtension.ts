@@ -27,6 +27,7 @@ import { ILogger } from "../../framework/api/ILogger";
  * </code>
  */
 export class InjectableLoggerExtension implements IExtension {
+    
     /*============================================================================*/
     /* Public Functions                                                           */
     /*============================================================================*/
@@ -56,5 +57,9 @@ export class InjectableLoggerExtension implements IExtension {
                 logger.source = ctx.plan.rootRequest.serviceIdentifier;
                 return logger;
             });
+    }
+
+    public unextend(context: IContext): void {
+        throw new Error("Method not implemented.");
     }
 }

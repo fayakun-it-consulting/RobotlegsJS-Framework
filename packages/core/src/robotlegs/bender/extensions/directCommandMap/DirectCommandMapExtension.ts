@@ -17,11 +17,16 @@ export class DirectCommandMapExtension implements IExtension {
     /*============================================================================*/
     /* Public Functions                                                           */
     /*============================================================================*/
-
+    
     /**
      * @inheritDoc
-     */
-    public extend(context: IContext): void {
-        context.injector.bind(IDirectCommandMap).to(DirectCommandMap);
+    */
+   public extend(context: IContext): void {
+       context.injector.bind(IDirectCommandMap).to(DirectCommandMap);
     }
+
+    public unextend(context: IContext): void {
+        throw new Error("Method not implemented.");
+    }
+    
 }

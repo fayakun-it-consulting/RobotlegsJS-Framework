@@ -17,11 +17,15 @@ export class EventCommandMapExtension implements IExtension {
     /*============================================================================*/
     /* Public Functions                                                           */
     /*============================================================================*/
-
+    
     /**
      * @inheritDoc
-     */
+    */
     public extend(context: IContext): void {
-        context.injector.bind(IEventCommandMap).to(EventCommandMap).inSingletonScope();
+       context.injector.bind(IEventCommandMap).to(EventCommandMap).inSingletonScope();
+    }
+    
+    public unextend(context: IContext): void {
+        throw new Error("Method not implemented.");
     }
 }

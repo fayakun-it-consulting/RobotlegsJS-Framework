@@ -18,11 +18,15 @@ export class LocalEventMapExtension implements IExtension {
     /*============================================================================*/
     /* Public Functions                                                           */
     /*============================================================================*/
-
+    
     /**
      * @inheritDoc
      */
     public extend(context: IContext): void {
         context.injector.bind(IEventMap).to(EventMap);
+    }
+    
+    public unextend(context: IContext): void {
+        throw new Error("Method not implemented.");
     }
 }

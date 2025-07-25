@@ -22,4 +22,6 @@ export interface IExtension {
      * @param context The context that this extension/bundle is being installed into.
      */
     extend(context: IContext): void;
+
+    unextend(context: IContext): void;
 }

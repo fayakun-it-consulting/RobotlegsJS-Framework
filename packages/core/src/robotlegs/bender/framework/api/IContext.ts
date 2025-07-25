@@ -89,6 +89,16 @@ export interface IContext extends IEventDispatcher {
     ): IContext;
 
     /**
+     * Uninstall custom extensions or bundles into the context
+     *
+     * @param extensions Objects or classes implementing IExtension or IBundle
+     * @return this
+     */
+    uninstall(
+        ...extensions: IBundle[] | IClass<IBundle>[] | IExtension[] | IClass<IExtension>[]
+    ): IContext;
+
+    /**
      * Configures the context with custom configurations
      *
      * @param configs Configuration objects or classes of any type
@@ -122,6 +132,15 @@ export interface IContext extends IEventDispatcher {
      * @return this
      */
     addConfigHandler(matcher: IMatcher, handler: Function): IContext;
+
+    /**
+     * Adds a custom configuration handler
+     *
+     * @param matcher Pattern to match configurations
+     * @param handler Handler to process matching configurations
+     * @return this
+     */
+    removeConfigHandler(matcher: IMatcher): IContext;
 
     /**
      * Retrieves a logger for a given source

@@ -26,6 +26,8 @@ export {
  * Bundles
  */
 export { MVCSBundle } from "./robotlegs/bender/bundles/mvcs/MVCSBundle";
+export { UIManagerBundle } from "./robotlegs/bender/bundles/uimanager/UIManagerBundle";
+
 /**
  * Event Dispatcher
  */
@@ -52,6 +54,18 @@ export { CommandMapping } from "./robotlegs/bender/extensions/commandCenter/impl
 export { CommandMappingList } from "./robotlegs/bender/extensions/commandCenter/impl/CommandMappingList";
 export { CommandTriggerMap } from "./robotlegs/bender/extensions/commandCenter/impl/CommandTriggerMap";
 export { NullCommandTrigger } from "./robotlegs/bender/extensions/commandCenter/impl/NullCommandTrigger";
+
+// ContextView
+export { IContextView } from "./robotlegs/bender/extensions/contextView/api/IContextView";
+export { ContextViewExtension } from "./robotlegs/bender/extensions/contextView/ContextViewExtension";
+export { ContextView } from "./robotlegs/bender/extensions/contextView/impl/ContextView";
+export { ContextViewListenerConfig } from "./robotlegs/bender/extensions/contextView/impl/ContextViewListenerConfig";
+
+/**
+ * Bundles
+ */
+export { OpenFLBundle } from "./robotlegs/bender/bundles/openfl/OpenFLBundle";
+
 /**
  * Direct Command Map Extension
  */
@@ -102,6 +116,22 @@ export { ITypeMatcherFactory } from "./robotlegs/bender/extensions/matching/ITyp
 export { TypeFilter } from "./robotlegs/bender/extensions/matching/TypeFilter";
 export { TypeMatcher } from "./robotlegs/bender/extensions/matching/TypeMatcher";
 export { TypeMatcherError } from "./robotlegs/bender/extensions/matching/TypeMatcherError";
+
+// MediatorMap
+export { IMediator } from "./robotlegs/bender/extensions/mediatorMap/api/IMediator";
+export { IMediatorMap } from "./robotlegs/bender/extensions/mediatorMap/api/IMediatorMap";
+export { IMediatorMapping } from "./robotlegs/bender/extensions/mediatorMap/api/IMediatorMapping";
+export { Mediator } from "./robotlegs/bender/extensions/mediatorMap/impl/Mediator";
+export { MediatorMapExtension } from "./robotlegs/bender/extensions/mediatorMap/MediatorMapExtension";
+
+// ViewManager
+export { IViewHandler } from "./robotlegs/bender/extensions/viewManager/api/IViewHandler";
+export { IViewManager } from "./robotlegs/bender/extensions/viewManager/api/IViewManager";
+export { ManualStageObserverExtension } from "./robotlegs/bender/extensions/viewManager/ManualStageObserverExtension";
+export { StageCrawlerExtension } from "./robotlegs/bender/extensions/viewManager/StageCrawlerExtension";
+export { StageObserverExtension } from "./robotlegs/bender/extensions/viewManager/StageObserverExtension";
+export { ViewManagerExtension } from "./robotlegs/bender/extensions/viewManager/ViewManagerExtension";
+
 /**
  * Framework API
  */
@@ -142,3 +172,4 @@ export { Pin } from "./robotlegs/bender/framework/impl/Pin";
 export { RobotlegsInjector } from "./robotlegs/bender/framework/impl/RobotlegsInjector";
 export { safelyCallBack } from "./robotlegs/bender/framework/impl/safelyCallBack";
 export { UID } from "./robotlegs/bender/framework/impl/UID";
+

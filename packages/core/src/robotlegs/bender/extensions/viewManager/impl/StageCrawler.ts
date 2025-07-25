@@ -9,8 +9,8 @@ import { IClass } from "@robotlegsjs/core";
 
 import { ContainerBinding } from "./ContainerBinding";
 
-import DisplayObject from "openfl/display/DisplayObject";
-import DisplayObjectContainer from "openfl/display/DisplayObjectContainer";
+
+
 
 /**
  * @private
@@ -40,7 +40,7 @@ export class StageCrawler {
     /**
      * @private
      */
-    public scan(container: DisplayObjectContainer): void {
+    public scan(container: HTMLElement): void {
         this.scanContainer(container);
     }
 
@@ -48,13 +48,13 @@ export class StageCrawler {
     /* Private Functions                                                          */
     /*============================================================================*/
 
-    private scanContainer(container: DisplayObjectContainer): void {
+    private scanContainer(container: HTMLElement): void {
         this.processView(container);
 
         for (let i: number = 0; i < container.numChildren; i++) {
-            let child: DisplayObject = container.getChildAt(i);
+            let child: Element = container.getChildAt(i);
 
-            if (child instanceof DisplayObjectContainer) {
+            if (child instanceof HTMLElement) {
                 this.scanContainer(child);
             } else {
                 this.processView(child);
@@ -62,7 +62,7 @@ export class StageCrawler {
         }
     }
 
-    private processView(view: DisplayObject): void {
+    private processView(view: Element): void {
         this._binding.handleView(view, <IClass<any>>view.constructor);
     }
 }

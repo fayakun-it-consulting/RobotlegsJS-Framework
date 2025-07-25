@@ -9,13 +9,13 @@ import { IClass } from "@robotlegsjs/core";
 
 import { ContainerRegistryEvent } from "./ContainerRegistryEvent";
 
-import { ContainerRegistry } from "./ContainerRegistry";
 import { ContainerBinding } from "./ContainerBinding";
+import { ContainerRegistry } from "./ContainerRegistry";
 
 import { ConfigureViewEvent } from "./ConfigureViewEvent";
 
-import DisplayObject from "openfl/display/DisplayObject";
-import DisplayObjectContainer from "openfl/display/DisplayObjectContainer";
+
+
 
 /**
  * @private
@@ -76,14 +76,14 @@ export class ManualStageObserver {
         this.removeContainerListener(event.container);
     }
 
-    private addContainerListener(container: DisplayObjectContainer): void {
+    private addContainerListener(container: HTMLElement): void {
         // We're interested in ALL container bindings
         // but just for normal, bubbling events
         this._eventListener = this.onConfigureView.bind(this);
         container.addEventListener(ConfigureViewEvent.CONFIGURE_VIEW, this._eventListener);
     }
 
-    private removeContainerListener(container: DisplayObjectContainer): void {
+    private removeContainerListener(container: HTMLElement): void {
         container.removeEventListener(ConfigureViewEvent.CONFIGURE_VIEW, this._eventListener);
     }
 
@@ -91,8 +91,8 @@ export class ManualStageObserver {
         // Stop that event!
         event.stopPropagation();
 
-        let container: DisplayObjectContainer = <DisplayObjectContainer>event.currentTarget;
-        let view: DisplayObject = <DisplayObject>event.target;
+        let container: HTMLElement = <HTMLElement>event.currentTarget;
+        let view: Element = <Element>event.target;
         let type: IClass<any> = <IClass<any>>view.constructor;
         this._registry.getBinding(container).handleView(view, type);
     }

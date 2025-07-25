@@ -8,7 +8,7 @@
 import { IEventDispatcher } from "@robotlegsjs/core";
 import { IViewHandler } from "./IViewHandler";
 
-import DisplayObjectContainer from "openfl/display/DisplayObjectContainer";
+
 
 /*[Event(name="containerAdd", type="robotlegs.bender.extensions.viewManager.impl.ViewManagerEvent")]*/
 /*[Event(name="containerRemove", type="robotlegs.bender.extensions.viewManager.impl.ViewManagerEvent")]*/
@@ -23,19 +23,19 @@ export interface IViewManager extends IEventDispatcher {
     /**
      * A list of currently registered containers
      */
-    containers: DisplayObjectContainer[];
+    containers: HTMLElement[];
 
     /**
      * Adds a container as a "view root" into the context
      * @param container
      */
-    addContainer(container: DisplayObjectContainer): void;
+    addContainer(container: HTMLElement): void;
 
     /**
      * Removes a container from this context
      * @param container
      */
-    removeContainer(container: DisplayObjectContainer): void;
+    removeContainer(container: HTMLElement): void;
 
     /**
      * Registers a view handler

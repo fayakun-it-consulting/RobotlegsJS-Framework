@@ -7,7 +7,7 @@
 
 import { IClass } from "@robotlegsjs/core";
 
-import DisplayObject from "openfl/display/DisplayObject";
+
 
 /**
  * View handler contract
@@ -18,5 +18,5 @@ export interface IViewHandler {
      * @param view The view instance to handle
      * @param type The class of the view instance
      */
-    handleView(view: DisplayObject, type: IClass<any>): void;
+    handleView(view: Element, type: IClass<any>): void;
 }

@@ -11,7 +11,7 @@ import { ContainerBinding } from "./ContainerBinding";
 import { ContainerBindingEvent } from "./ContainerBindingEvent";
 import { ContainerRegistryEvent } from "./ContainerRegistryEvent";
 
-import DisplayObjectContainer from "openfl/display/DisplayObjectContainer";
+
 
 /*[Event(name="containerAdd", type="robotlegs.bender.extensions.viewManager.impl.ContainerRegistryEvent")]*/
 /*[Event(name="containerRemove", type="robotlegs.bender.extensions.viewManager.impl.ContainerRegistryEvent")]*/
@@ -48,7 +48,7 @@ export class ContainerRegistry extends EventDispatcher {
     /* Private Properties                                                         */
     /*============================================================================*/
 
-    private _bindingByContainer: Map<DisplayObjectContainer, ContainerBinding> = new Map<DisplayObjectContainer, ContainerBinding>();
+    private _bindingByContainer: Map<HTMLElement, ContainerBinding> = new Map<HTMLElement, ContainerBinding>();
 
     /*============================================================================*/
     /* Public Functions                                                           */
@@ -57,7 +57,7 @@ export class ContainerRegistry extends EventDispatcher {
     /**
      * @private
      */
-    public addContainer(container: DisplayObjectContainer): ContainerBinding {
+    public addContainer(container: HTMLElement): ContainerBinding {
         let binding = this._bindingByContainer.get(container);
         if (!binding) {
             binding = this.createBinding(container);
@@ -69,7 +69,7 @@ export class ContainerRegistry extends EventDispatcher {
     /**
      * @private
      */
-    public removeContainer(container: DisplayObjectContainer): ContainerBinding {
+    public removeContainer(container: HTMLElement): ContainerBinding {
         let binding: ContainerBinding = this._bindingByContainer.get(container);
 
         if (binding) {
@@ -84,8 +84,8 @@ export class ContainerRegistry extends EventDispatcher {
      *
      * @private
      */
-    public findParentBinding(target: DisplayObjectContainer): ContainerBinding {
-        let parent: DisplayObjectContainer = target.parent;
+    public findParentBinding(target: HTMLElement): ContainerBinding {
+        let parent: HTMLElement = target.parent;
         while (parent) {
             let binding: ContainerBinding = this._bindingByContainer.get(parent);
             if (binding) {
@@ -99,7 +99,7 @@ export class ContainerRegistry extends EventDispatcher {
     /**
      * @private
      */
-    public getBinding(container: DisplayObjectContainer): ContainerBinding {
+    public getBinding(container: HTMLElement): ContainerBinding {
         return this._bindingByContainer.get(container);
     }
 
@@ -107,7 +107,7 @@ export class ContainerRegistry extends EventDispatcher {
     /* Private Functions                                                          */
     /*============================================================================*/
 
-    private createBinding(container: DisplayObjectContainer): ContainerBinding {
+    private createBinding(container: HTMLElement): ContainerBinding {
         let binding: ContainerBinding = new ContainerBinding(container);
         this._bindings.push(binding);
 

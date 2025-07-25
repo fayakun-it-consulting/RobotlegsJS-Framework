@@ -11,7 +11,7 @@ import { ContainerBinding } from "./ContainerBinding";
 import { ContainerRegistry } from "./ContainerRegistry";
 import { ContainerRegistryEvent } from "./ContainerRegistryEvent";
 
-import DisplayObjectContainer from "openfl/display/DisplayObjectContainer";
+
 import Event from "openfl/events/Event";
 
 /**
@@ -72,16 +72,16 @@ export class StageObserver {
         this.removeRootListener(event.container);
     }
 
-    private addRootListener(container: DisplayObjectContainer): void {
+    private addRootListener(container: HTMLElement): void {
         container.addEventListener(Event.ADDED_TO_STAGE, this.onViewAddedToStage, true);
     }
 
-    private removeRootListener(container: DisplayObjectContainer): void {
+    private removeRootListener(container: HTMLElement): void {
         container.removeEventListener(Event.ADDED_TO_STAGE, this.onViewAddedToStage, true);
     }
 
     private onViewAddedToStage = (event: Event): void => {
-        let view: DisplayObjectContainer = event.target;
+        let view: HTMLElement = event.target;
         let type: IClass<any> = <IClass<any>>view.constructor;
 
         // Walk upwards from the nearest binding

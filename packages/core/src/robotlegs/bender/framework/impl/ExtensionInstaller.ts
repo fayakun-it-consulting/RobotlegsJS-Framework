@@ -7,7 +7,7 @@
 
 import { IContext } from "../api/IContext";
 import { ILogger } from "../api/ILogger";
-
+import { ExtensionInstance } from "./ExtensionInstance";
 /**
  * Installs custom extensions into a given context
  *
@@ -54,7 +54,10 @@ export class ExtensionInstaller {
             let extensionClass: any = <any>extension.constructor;
             if (!this._classes.get(extensionClass)) {
                 this._logger.debug("Installing extension {0}", [extension]);
-                this._classes.set(extensionClass, true);
+
+                let extensionInstance = new ExtensionInstance(extension, true);
+                
+                this._classes.set(extensionClass, extensionInstance);
                 extension.extend(this._context);
             }
         }

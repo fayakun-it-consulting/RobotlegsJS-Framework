@@ -9,7 +9,7 @@
  * Patch Container class to add implementation of contains method.
  */
 
-import { Container, Element } from "pixi.js";
+import { Container, DisplayObject } from "pixi.js";
 
 /**
  * Determines whether the specified child object is a child of the Container instance or the instance itself.
@@ -22,7 +22,7 @@ import { Container, Element } from "pixi.js";
  *
  * @see {@link https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/DisplayObjectContainer.html#contains()}
  */
-export function contains(container: Container, child: Element): boolean {
+export function contains(container: Container, child: DisplayObject): boolean {
     let found: boolean = false;
     if (container === child || container.children.indexOf(child) >= 0) {
         found = true;

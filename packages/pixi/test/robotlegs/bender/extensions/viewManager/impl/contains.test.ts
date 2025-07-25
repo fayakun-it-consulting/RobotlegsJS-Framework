@@ -6,7 +6,7 @@
 // ------------------------------------------------------------------------------
 
 import { assert } from "chai";
-import { Container, Element, Sprite } from "pixi.js";
+import { Container, DisplayObject, Sprite } from "pixi.js";
 import { contains } from "../../../../../../src/robotlegs/bender/extensions/viewManager/support/contains";
 import "../../../../../entry";
 
@@ -27,7 +27,7 @@ describe("Contains", () => {
     });
 
     it("Container_contains_direct_child", () => {
-        let child: Element = new Sprite();
+        let child: DisplayObject = new Sprite();
 
         container.addChild(child);
 
@@ -35,9 +35,9 @@ describe("Contains", () => {
     });
 
     it("Container_contains_direct_children", () => {
-        let child1: Element = new Sprite();
-        let child2: Element = new Sprite();
-        let child3: Element = new Sprite();
+        let child1: DisplayObject = new Sprite();
+        let child2: DisplayObject = new Sprite();
+        let child3: DisplayObject = new Sprite();
 
         container.addChild(child1);
         container.addChild(child2);
@@ -50,14 +50,14 @@ describe("Contains", () => {
 
     it("Container_contains_nested_children", () => {
         let child1: Container = new Container();
-        let child2: Element = new Sprite();
-        let child3: Element = new Sprite();
+        let child2: DisplayObject = new Sprite();
+        let child3: DisplayObject = new Sprite();
         let grandChild1: Container = new Container();
-        let grandChild2: Element = new Sprite();
-        let grandChild3: Element = new Sprite();
-        let greatGrandChild1: Element = new Sprite();
-        let greatGrandChild2: Element = new Sprite();
-        let greatGrandChild3: Element = new Sprite();
+        let grandChild2: DisplayObject = new Sprite();
+        let grandChild3: DisplayObject = new Sprite();
+        let greatGrandChild1: DisplayObject = new Sprite();
+        let greatGrandChild2: DisplayObject = new Sprite();
+        let greatGrandChild3: DisplayObject = new Sprite();
 
         container.addChild(child1);
         container.addChild(child2);

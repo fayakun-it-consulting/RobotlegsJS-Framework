@@ -40,4 +40,8 @@ export class ObjectHandler {
             this._handler(object);
         }
     }
+
+    public get matcher(): IMatcher{
+        return this._matcher
+    }
 }

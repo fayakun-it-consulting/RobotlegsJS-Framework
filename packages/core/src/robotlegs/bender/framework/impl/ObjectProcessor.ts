@@ -35,6 +35,20 @@ export class ObjectProcessor {
     }
 
     /**
+     * Add a handler to process objects that match a given matcher.
+     *
+     * @param matcher The matcher
+     * @param handler The handler function
+     */
+    public removeObjectHandler(matcher: IMatcher): void {
+        this._handlers.forEach((handler: ObjectHandler, index) => {
+            if (matcher === handler.matcher){
+                this._handlers.splice(index, 1);
+            }
+        });
+    }
+
+    /**
      * Process an object by running it through all registered handlers
      *
      * @param object The object instance to process.

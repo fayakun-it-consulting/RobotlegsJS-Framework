@@ -91,6 +91,14 @@ export class ConfigManager {
     }
 
     /**
+     * Remove a custom configuration handlers 
+     *
+     * @param matcher Pattern to match configuration objects
+     */
+    public remomveConfigHandler(matcher: IMatcher): void {
+        this._objectProcessor.removeObjectHandler(matcher);
+    }
+    /**
      * Destroy
      */
     public destroy(): void {

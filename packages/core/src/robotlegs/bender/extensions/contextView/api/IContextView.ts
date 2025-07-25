@@ -5,9 +5,7 @@
 //  in accordance with the terms of the license agreement accompanying it.
 // ------------------------------------------------------------------------------
 
-import Stage from "openfl/display/Stage";
-
 export let IContextView = Symbol("IContextView");
 export interface IContextView {
-    view: Stage;
+    view: HTMLElement;
 }

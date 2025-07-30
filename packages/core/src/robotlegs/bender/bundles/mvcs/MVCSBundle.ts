@@ -21,7 +21,6 @@ import { IContext } from "../../framework/api/IContext";
  * in typical Robotlegs applications and modules.</p>
  */
 export class MVCSBundle implements IBundle {
-
     /*============================================================================*/
     /* Public Functions                                                           */
     /*============================================================================*/
@@ -40,8 +39,8 @@ export class MVCSBundle implements IBundle {
         );
     }
 
-    unextend(context: IContext): void {
-        //throw new Error("Method not implemented.");
+    public unextend(context: IContext): void {
+        // throw new Error("Method not implemented.");
         context.uninstall(
             ConsoleLoggingExtension,
             InjectableLoggerExtension,
@@ -51,5 +50,4 @@ export class MVCSBundle implements IBundle {
             LocalEventMapExtension
         );
     }
-    
 }
